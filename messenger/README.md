@@ -1,9 +1,8 @@
-# coffee-menu-swiftui
+# A SwiftUI Messenger App
 
-A simple SwiftUI app, that uses static data, that allows you to browse different types of coffee and navigate to 
-a details page to learn more about each menu item!
+This is the beginning of a fully function messenger app. The goal is to recreate Appls's Messenger. Currently it is only using static data and I am current try to work with SwfitUI to implement Networking and actual user response functionality. This may take some time as SwiftUI is brand new and there are some bugs, as you may expect, involved with this.
 
 
 # App Demo
 
-![Demo](https://user-images.githubusercontent.com/17322126/60827220-ef9b8f00-a16c-11e9-9ffb-ceac71509540.gif)
+![Demo](https://user-images.githubusercontent.com/17322126/60988119-3a014500-a300-11e9-8e92-0081c338e624.gif)
