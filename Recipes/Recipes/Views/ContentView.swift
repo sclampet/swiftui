@@ -14,6 +14,7 @@ struct ContentView: View {
     var facts: [Fact] = factsData
     var recipes: [Recipe] = recipesData
     
+    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .center, spacing: 20) {
