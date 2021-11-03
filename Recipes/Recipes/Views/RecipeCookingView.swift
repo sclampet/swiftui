@@ -12,6 +12,7 @@ struct RecipeCookingView: View {
     
     var recipe: Recipe
     
+    
     var body: some View {
         HStack(alignment: .center, spacing: 12) {
             HStack(alignment: .center, spacing: 2) {
