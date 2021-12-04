@@ -23,6 +23,8 @@
 		60324B572759570D001CE7B2 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60324B562759570D001CE7B2 /* Product.swift */; };
 		60324B5927595834001CE7B2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60324B5827595834001CE7B2 /* HomeViewModel.swift */; };
 		60324B5B27595F96001CE7B2 /* MoreProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60324B5A27595F96001CE7B2 /* MoreProductsView.swift */; };
+		60324B5D275BB33C001CE7B2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60324B5C275BB33C001CE7B2 /* SearchView.swift */; };
+		60324B5F275BB87C001CE7B2 /* StaggeredGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60324B5E275BB87C001CE7B2 /* StaggeredGrid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		60324B562759570D001CE7B2 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		60324B5827595834001CE7B2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		60324B5A27595F96001CE7B2 /* MoreProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreProductsView.swift; sourceTree = "<group>"; };
+		60324B5C275BB33C001CE7B2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		60324B5E275BB87C001CE7B2 /* StaggeredGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaggeredGrid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,8 @@
 				60324B4E27591B64001CE7B2 /* CustomCorners.swift */,
 				60324B50275950D9001CE7B2 /* MainPage.swift */,
 				60324B5A27595F96001CE7B2 /* MoreProductsView.swift */,
+				60324B5C275BB33C001CE7B2 /* SearchView.swift */,
+				60324B5E275BB87C001CE7B2 /* StaggeredGrid.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -221,7 +227,9 @@
 				60324B4A27591A0E001CE7B2 /* LoginPage.swift in Sources */,
 				60324B5B27595F96001CE7B2 /* MoreProductsView.swift in Sources */,
 				60324B4F27591B64001CE7B2 /* CustomCorners.swift in Sources */,
+				60324B5F275BB87C001CE7B2 /* StaggeredGrid.swift in Sources */,
 				60324B572759570D001CE7B2 /* Product.swift in Sources */,
+				60324B5D275BB33C001CE7B2 /* SearchView.swift in Sources */,
 				60324B5927595834001CE7B2 /* HomeViewModel.swift in Sources */,
 				60324B3327591426001CE7B2 /* ContentView.swift in Sources */,
 				60324B482759157E001CE7B2 /* OnBoardingPage.swift in Sources */,
