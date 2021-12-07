@@ -29,6 +29,7 @@
 		60324B63275D4010001CE7B2 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60324B62275D4010001CE7B2 /* ProductDetailView.swift */; };
 		60324B67275D40EC001CE7B2 /* SharedDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60324B66275D40EC001CE7B2 /* SharedDataViewModel.swift */; };
 		60FE1FBF27600307005456E3 /* LikedPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FE1FBE27600307005456E3 /* LikedPage.swift */; };
+		60FE1FC127600AC1005456E3 /* CartPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FE1FC027600AC1005456E3 /* CartPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		60324B62275D4010001CE7B2 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		60324B66275D40EC001CE7B2 /* SharedDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDataViewModel.swift; sourceTree = "<group>"; };
 		60FE1FBE27600307005456E3 /* LikedPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedPage.swift; sourceTree = "<group>"; };
+		60FE1FC027600AC1005456E3 /* CartPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				60324B532759547A001CE7B2 /* Home.swift */,
 				60324B60275BEB3B001CE7B2 /* ProfilePage.swift */,
 				60FE1FBE27600307005456E3 /* LikedPage.swift */,
+				60FE1FC027600AC1005456E3 /* CartPage.swift */,
 			);
 			path = TabViews;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				60324B5927595834001CE7B2 /* HomeViewModel.swift in Sources */,
 				60324B3327591426001CE7B2 /* ContentView.swift in Sources */,
 				60FE1FBF27600307005456E3 /* LikedPage.swift in Sources */,
+				60FE1FC127600AC1005456E3 /* CartPage.swift in Sources */,
 				60324B482759157E001CE7B2 /* OnBoardingPage.swift in Sources */,
 				60324B4D27591A26001CE7B2 /* LoginPageViewModel.swift in Sources */,
 				60324B61275BEB3B001CE7B2 /* ProfilePage.swift in Sources */,
