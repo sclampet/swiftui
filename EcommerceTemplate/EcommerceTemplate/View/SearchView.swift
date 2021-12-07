@@ -11,6 +11,7 @@ struct SearchView: View {
     var animation: Namespace.ID
     
     @EnvironmentObject var homeData: HomeViewModel
+    @EnvironmentObject var sharedData: SharedDataViewModel
     
     //Activating Text Field with the help of FocusState
     @FocusState var startTF: Bool
@@ -26,6 +27,7 @@ struct SearchView: View {
                     }
                     
                     homeData.searchText = ""
+                    sharedData.fromSearchPage = false
                 } label: {
                     Image(systemName: "arrow.left")
                         .font(.title2)
@@ -75,11 +77,6 @@ struct SearchView: View {
                 } else {
                     //MARK: Filter Found Results
                     ScrollView(.vertical, showsIndicators: false) {
-                        //MARK: Found Text
-                        Text("Found \(products.count) results")
-                            .font(.custom(customFont, size: 24).bold())
-                            .padding(.vertical)
-                        
                         //MARK: Staggered Grid
                         VStack(spacing: 0) {
                             StaggeredGrid(columns: 2, spacing: 20, list: products) { product in
@@ -107,9 +104,19 @@ struct SearchView: View {
     
     func ProductCardView(product: Product) -> some View {
         VStack(spacing: 10) {
-            Image(product.productImage)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            ZStack {
+                if sharedData.showDetailProduct {
+                    Image(product.productImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .opacity(0)
+                } else {
+                    Image(product.productImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .matchedGeometryEffect(id: "\(product.id)SEARCH", in: animation)
+                }
+            }
                 .offset(y: -50)
                 .padding(.bottom, -50)
             
@@ -135,11 +142,18 @@ struct SearchView: View {
             Color.white.cornerRadius(25)
         )
         .padding(.top, 50)
+        .onTapGesture {
+            withAnimation(.easeInOut) {
+                sharedData.detailProduct = product
+                sharedData.fromSearchPage = true
+                sharedData.showDetailProduct = true
+            }
+        }
     }
 }
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        MainPage()
     }
 }

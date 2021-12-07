@@ -10,6 +10,10 @@ import SwiftUI
 struct MainPage: View {
     @State var currentTab: Tab = .Home
     
+    @StateObject var sharedData: SharedDataViewModel = SharedDataViewModel()
+    
+    @Namespace var animation
+    
     init() {
         UITabBar.appearance().isHidden = true
     }
@@ -17,13 +21,14 @@ struct MainPage: View {
     var body: some View {
         VStack(spacing: 0) {
             TabView(selection: $currentTab) {
-                Home()
+                Home(animation: animation)
+                    .environmentObject(sharedData)
                     .tag(Tab.Home)
                 
                 Text("Liked")
                     .tag(Tab.Liked)
                 
-                Text("Profile")
+                ProfilePage()
                     .tag(Tab.Profile)
                 
                 Text("Cart")
@@ -56,8 +61,19 @@ struct MainPage: View {
                     .padding(.bottom, 10)
                 }
             }
+            .padding(.top, 20)
         }
         .background(Color("HomeBG").ignoresSafeArea())
+        .overlay(
+            //MARK: Product Details Overlay
+            ZStack {
+                if let product = sharedData.detailProduct, sharedData.showDetailProduct {
+                    ProductDetailView(product: product, animation: animation)
+                        .environmentObject(sharedData)
+                        .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .opacity))
+                }
+            }
+        )
     }
 }
 
