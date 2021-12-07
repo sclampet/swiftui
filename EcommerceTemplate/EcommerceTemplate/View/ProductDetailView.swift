@@ -13,6 +13,7 @@ struct ProductDetailView: View {
     var animation: Namespace.ID
     
     @EnvironmentObject var sharedData: SharedDataViewModel
+    @EnvironmentObject var homeData: HomeViewModel
     
     var body: some View {
         VStack {
@@ -32,13 +33,13 @@ struct ProductDetailView: View {
                     Spacer()
                     
                     Button {
-                        
+                        addToLiked()
                     } label: {
                         Image("Liked")
                             .renderingMode(.template)
                             .resizable()
                             .frame(width: 22, height: 22)
-                            .foregroundColor(.black.opacity(0.7))
+                            .foregroundColor(isLiked() ? .pink : .black.opacity(0.7))
                     }
 
 
@@ -102,9 +103,9 @@ struct ProductDetailView: View {
                     
                     //MARK: Add Button
                     Button {
-                        
+                        addToCart()
                     } label: {
-                        Text("add to basket")
+                        Text("\(isAddedToCart() ? "added" : "add") to basket")
                             .font(.custom(customFont, size: 20).bold())
                             .foregroundColor(.white)
                             .padding(.vertical, 20)
@@ -130,7 +131,42 @@ struct ProductDetailView: View {
             )
             .zIndex(0)
         }
+        .animation(.easeInOut, value: sharedData.likedProducts)
+        .animation(.easeInOut, value: sharedData.cartProducts)
         .background(Color("HomeBG"))
+    }
+    
+    //MARK: Private methods
+    func addToLiked() {
+        if let index = sharedData.likedProducts.firstIndex(where: { product in
+            return self.product.id == product.id
+        }) {
+            sharedData.likedProducts.remove(at: index)
+        } else {
+            sharedData.likedProducts.append(product)
+        }
+    }
+    
+    func addToCart() {
+        if let index = sharedData.cartProducts.firstIndex(where: { product in
+            return self.product.id == product.id
+        }) {
+            sharedData.cartProducts.remove(at: index)
+        } else {
+            sharedData.cartProducts.append(product)
+        }
+    }
+    
+    func isLiked() -> Bool {
+        return sharedData.likedProducts.contains { product in
+            return self.product.id == product.id
+        }
+    }
+    
+    func isAddedToCart() -> Bool {
+        return sharedData.cartProducts.contains { product in
+            return self.product.id == product.id
+        }
     }
 }
 
