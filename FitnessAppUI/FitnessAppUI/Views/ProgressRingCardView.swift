@@ -18,16 +18,7 @@ struct ProgressRingCardView: View {
                 //MARK: Progress Rings
                 ZStack {
                     ForEach(rings.indices, id: \.self) { index in
-                        ZStack {
-                            Circle()
-                                .stroke(Color.gray.opacity(0.3), lineWidth: 10)
-                            
-                            Circle()
-                                .trim(from: 0, to: rings[index].progress / 100)
-                                .stroke(rings[index].keyColor, style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
-                                .rotationEffect(.init(degrees: -90))
-                        }
-                        .padding(CGFloat(index) * 16)
+                        AnimatedRingView(ring: rings[index], index: index)
                     }
                 }
                 .frame(width: 130, height: 130)
@@ -72,5 +63,33 @@ struct ProgressRingCardView: View {
 struct ProgressRingCardView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct AnimatedRingView: View {
+    var ring: Ring
+    var index: Int
+    
+    @State var showRing: Bool = false
+    
+    var body: some View {
+        ZStack {
+            Circle()
+                .stroke(Color.gray.opacity(0.3), lineWidth: 10)
+            
+            Circle()
+                .trim(from: 0, to: showRing ? rings[index].progress / 100 : 0)
+                .stroke(rings[index].keyColor, style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
+                .rotationEffect(.init(degrees: -90))
+        }
+        .padding(CGFloat(index) * 16)
+        .onAppear(perform: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                //Animate after initial animation has finished. Hence the .delay
+                withAnimation(.interactiveSpring(response: 1, dampingFraction: 1, blendDuration: 1).delay(Double(index) * 0.1)) {
+                    showRing = true
+                }
+            }
+        })
     }
 }

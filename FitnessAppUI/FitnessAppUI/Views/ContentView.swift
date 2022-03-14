@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    //Extra animation
+    @State var showView: Bool = false
+    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             HomeView()
@@ -32,6 +35,13 @@ struct ContentView: View {
             .ignoresSafeArea()
         )
         .preferredColorScheme(.dark)
+        .onAppear(perform: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                withAnimation {
+                    showView = true                    
+                }
+            }
+        })
     }
 }
 
